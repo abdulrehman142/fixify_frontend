@@ -9,12 +9,6 @@ export default defineConfig({
   ],
   assetsInclude: ['**/*.svg'],
   
-  server: {
-    middlewareMode: false,
-    // Ensure SPA routing works in dev
-    historyApiFallback: true,
-  },
-  
   build: {
     // Code splitting for better caching and parallel loading
     rollupOptions: {
