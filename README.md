@@ -152,7 +152,7 @@ npm install axios
 ### Step 4: Create Environment File
 Create a `.env` file in the project root:
 ```env
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=https://your-backend-url.onrender.com
 ```
 
 ### Step 5: Start Backend (If Not Running)
@@ -197,7 +197,7 @@ Create a `.env` file in the project root with the following variables:
 
 ```env
 # API Configuration
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=https://your-backend-url.onrender.com
 
 # Other configurations (add as needed)
 ```
@@ -386,12 +386,12 @@ POST /contact
 **Solutions**:
 
 1. **Check Backend is Running**
-   - Visit `http://localhost:8000/docs` in browser
+   - Visit `https://your-backend-url.onrender.com/docs` in browser
    - Should show FastAPI Swagger documentation
 
 2. **Verify Environment Variables**
    - Check `.env` file has correct `VITE_API_BASE_URL`
-   - Default: `http://localhost:8000`
+   - Default: `https://your-backend-url.onrender.com`
 
 3. **Check CORS Settings**
    - Backend must allow requests from `http://localhost:5173`
