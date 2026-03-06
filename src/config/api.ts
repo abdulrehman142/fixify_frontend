@@ -1,5 +1,10 @@
 // API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://fixify-backend-321f.onrender.com";
+const isNetlifyDeployment =
+  typeof window !== "undefined" && window.location.hostname.includes("netlify.app");
+
+const API_BASE_URL = isNetlifyDeployment
+  ? "/api"
+  : import.meta.env.VITE_API_BASE_URL || "https://fixify-backend-321f.onrender.com";
 
 export const API_ENDPOINTS = {
   // Auth
