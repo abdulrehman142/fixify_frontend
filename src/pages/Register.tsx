@@ -6,6 +6,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +22,7 @@ const Register = () => {
     setError(null);
     setLoading(true);
 
-    if (!name.trim() || !email.trim() || !password.trim() || !confirm.trim()) {
+    if (!name.trim() || !email.trim() || !phone.trim() || !password.trim() || !confirm.trim()) {
       setError("Please fill in all fields.");
       setLoading(false);
       return;
@@ -46,7 +47,7 @@ const Register = () => {
     }
 
     try {
-      await authService.registerCustomer({ name, email, password });
+      await authService.registerCustomer({ name, email, phone, password });
       setSuccess(true);
       setTimeout(() => {
         navigate("/login");
@@ -104,6 +105,18 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="border-2 border-white w-full mb-3 p-2 rounded border-3xl bg-white dark:bg-[#231212] text-black dark:text-white focus:outline-none text-sm"
                 placeholder="you@example.com"
+                required
+              />
+
+              <label className="block mb-2 text-xs md:text-sm text-white dark:text-white">
+                Phone
+              </label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="border-2 border-white w-full mb-3 p-2 rounded border-3xl bg-white dark:bg-[#231212] text-black dark:text-white focus:outline-none text-sm"
+                placeholder="03XX-XXXXXXX"
                 required
               />
 
